@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Responsive Registration Form | CodingLab </title>
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/custom-style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/icon.png" type="image/icon type">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">Registration</div>
+        <div class="content">
+            <form method="post" name="google-sheet">
+                <div class="user-details">
+                    <div class="input-box">
+                        <span class="details">Name</span>
+                        <input name="Name" type="text" placeholder="Enter your name" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Email</span>
+                        <input name="Email" type="text" placeholder="Enter your email" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Phone Number</span>
+                        <input name="Mobile" type="text" placeholder="Enter your number" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Purpose</span>
+                        <input name="Purpose" type="text" placeholder="for business / instructor" required>
+                    </div>
+                </div>
+                <div class="button">
+                    <input type="submit" value="Register">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwDu2KKBXl4hg1rfi2dO4p6ZrlE_z542NOb-dz7rn-GnQQRMY4pVU2kK0C52b6O7x-K/exec'
+        const form = document.forms['google-sheet']
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, {
+                    method: 'POST',
+                    body: new FormData(form)
+                })
+                .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+                .catch(error => console.error('Error!', error.message))
+        })
+    </script>
+
+
+</body>
+
+</html>
